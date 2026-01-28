@@ -5,6 +5,7 @@ import UIKit
 
 struct ContentView: View {
 
+    @StateObject private var tusManager = TusUploadManager.shared
     @State private var selectedVideoURL: URL?
     @State private var showVideoPicker = false
     @State private var isEncoding = false
@@ -69,6 +70,43 @@ struct ContentView: View {
                     Label("Upload ZIP (TUS)", systemImage: "arrow.up.circle")
                 }
                 .padding(.top, 2)
+
+                // TUS upload progress bar
+                if tusManager.activeUploadId != nil {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(tusManager.activeStatus.isEmpty ? "Preparing upload…" : tusManager.activeStatus)
+                            .font(.caption2)
+
+                        ProgressView(value: tusManager.activeProgress)
+                            .progressViewStyle(.linear)
+                    }
+                    .padding(.top, 4)
+                }
+
+                // Last uploaded TUS URL with copy button
+                if let uploadedURL = tusManager.lastUploadedURL {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Uploaded URL")
+                            .font(.caption2)
+                            .foregroundColor(.secondary)
+
+                        HStack {
+                            Text(uploadedURL.absoluteString)
+                                .font(.caption2)
+                                .lineLimit(1)
+                                .truncationMode(.middle)
+                                .textSelection(.enabled)
+
+                            Button {
+                                UIPasteboard.general.string = uploadedURL.absoluteString
+                            } label: {
+                                Image(systemName: "doc.on.doc")
+                            }
+                            .buttonStyle(.borderless)
+                        }
+                    }
+                    .padding(.top, 4)
+                }
             }
 
             // MARK: - Encoded Videos List
@@ -112,6 +150,12 @@ struct ContentView: View {
         .sheet(isPresented: $showShareSheet) {
             if let zipURL {
                 ActivityView(activityItems: [zipURL])
+            }
+        }
+        // Append TUS log messages into the on-screen log view
+        .onReceive(NotificationCenter.default.publisher(for: .tusLog)) { notification in
+            if let message = notification.userInfo?["message"] as? String {
+                encodeLog += message + "\n"
             }
         }
     }

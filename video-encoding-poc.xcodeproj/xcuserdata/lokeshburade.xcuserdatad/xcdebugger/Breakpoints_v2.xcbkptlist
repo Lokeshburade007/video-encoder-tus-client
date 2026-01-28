@@ -34,64 +34,68 @@
             endingLineNumber = "221"
             landmarkName = "uploadZip(for:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B6B78812-0EFB-4BBB-9997-E43D5F8BC817"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "video-encoding-poc/TusUploadManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "upload(fileURL:context:)"
+            landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "2F397A6F-E244-48F7-ADC1-B0DB9BEE83C3 - 7b5206f7c779c818"
+                  uuid = "B6B78812-0EFB-4BBB-9997-E43D5F8BC817 - de5d1b46f7cb02e4"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(9) suspend resume partial function for closure #1 () async -&gt; () in video_encoding_poc.ContentView.uploadZip(for: video_encoding_poc.EncodedVideo) -&gt; ()"
+                  symbolName = "video_encoding_poc.TusUploadManager.upload(fileURL: Foundation.URL, context: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;) throws -&gt; Foundation.UUID"
                   moduleName = "video-encoding-poc.debug.dylib"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lokeshburade/Documents/video-encoding-poc/video-encoding-poc/ContentView.swift"
+                  urlString = "file:///Users/lokeshburade/Documents/video-encoding-poc/video-encoding-poc/TusUploadManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "221"
-                  endingLineNumber = "221">
+                  startingLineNumber = "65"
+                  endingLineNumber = "65">
                </Location>
                <Location
-                  uuid = "2F397A6F-E244-48F7-ADC1-B0DB9BEE83C3 - f9c3ee6fe918c734"
+                  uuid = "B6B78812-0EFB-4BBB-9997-E43D5F8BC817 - 91dd8d1b82654de8"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(10) await resume partial function for closure #1 () async -&gt; () in video_encoding_poc.ContentView.uploadZip(for: video_encoding_poc.EncodedVideo) -&gt; ()"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in video_encoding_poc.TusUploadManager.upload(fileURL: Foundation.URL, context: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;) throws -&gt; Foundation.UUID"
                   moduleName = "video-encoding-poc.debug.dylib"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lokeshburade/Documents/video-encoding-poc/video-encoding-poc/ContentView.swift"
+                  urlString = "file:///Users/lokeshburade/Documents/video-encoding-poc/video-encoding-poc/TusUploadManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "221"
-                  endingLineNumber = "221">
-               </Location>
-               <Location
-                  uuid = "2F397A6F-E244-48F7-ADC1-B0DB9BEE83C3 - 3b520e7268a990d7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(16) suspend resume partial function for closure #1 () async -&gt; () in video_encoding_poc.ContentView.uploadZip(for: video_encoding_poc.EncodedVideo) -&gt; ()"
-                  moduleName = "video-encoding-poc.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lokeshburade/Documents/video-encoding-poc/video-encoding-poc/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "221"
-                  endingLineNumber = "221">
-               </Location>
-               <Location
-                  uuid = "2F397A6F-E244-48F7-ADC1-B0DB9BEE83C3 - d061c5be0d055fac"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor @Sendable () -&gt; () in closure #1 () async -&gt; () in video_encoding_poc.ContentView.uploadZip(for: video_encoding_poc.EncodedVideo) -&gt; ()"
-                  moduleName = "video-encoding-poc.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lokeshburade/Documents/video-encoding-poc/video-encoding-poc/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "222"
-                  endingLineNumber = "222">
+                  startingLineNumber = "66"
+                  endingLineNumber = "66">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C4777F61-A190-4ACD-ACDC-0755FBB4ECFC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "video-encoding-poc/TusUploadManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "upload(fileURL:context:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

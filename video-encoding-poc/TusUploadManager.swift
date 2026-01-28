@@ -7,11 +7,20 @@
 
 import Foundation
 import TUSKit
+internal import Combine
 
-final class TusUploadManager: NSObject {
+final class TusUploadManager: NSObject, ObservableObject {
     static let shared = TusUploadManager()
 
     private let client: TUSClient
+
+    // MARK: - Published upload state (for UI)
+    @Published var activeUploadId: UUID?
+    @Published var activeProgress: Double = 0          // 0.0 - 1.0
+    @Published var activeStatus: String = ""
+    @Published var activeBytesUploaded: Int = 0
+    @Published var activeTotalBytes: Int = 0
+    @Published var lastUploadedURL: URL?
 
     override init() {
         // TODO: Replace with your own tus server URL.
@@ -52,7 +61,28 @@ final class TusUploadManager: NSObject {
     /// Start uploading a single file using TUS. Returns the upload ID.
     @discardableResult
     func upload(fileURL: URL, context: [String: String]? = nil) throws -> UUID {
-        try client.uploadFileAt(filePath: fileURL, context: context)
+        let id = try client.uploadFileAt(filePath: fileURL, context: context)
+
+        DispatchQueue.main.async {
+            self.activeUploadId = id
+            self.activeProgress = 0
+            self.activeStatus = "Starting upload…"
+            self.activeBytesUploaded = 0
+            self.activeTotalBytes = 0
+        }
+
+        TusUploadManager.postLog("TUS: queued upload id=\(id.uuidString) file=\(fileURL.lastPathComponent)")
+        return id
+    }
+
+    // MARK: - Helper for broadcasting log messages to UI
+    private static func postLog(_ message: String) {
+        print(message)
+        NotificationCenter.default.post(
+            name: .tusLog,
+            object: nil,
+            userInfo: ["message": message]
+        )
     }
 }
 
@@ -60,27 +90,47 @@ final class TusUploadManager: NSObject {
 
 extension TusUploadManager: TUSClientDelegate {
     func fileError(error: TUSKit.TUSClientError, client: TUSKit.TUSClient) {
-        print("TUS: file error (no id) \(error)")
+        TusUploadManager.postLog("TUS: file error (no id) \(error)")
     }
     
     func didStartUpload(id: UUID, context: [String : String]?, client: TUSClient) {
-        print("TUS: started upload \(id)")
+        TusUploadManager.postLog("TUS: started upload id=\(id.uuidString)")
+
+        DispatchQueue.main.async {
+            self.activeUploadId = id
+            self.activeStatus = "Uploading…"
+        }
     }
 
     func didFinishUpload(id: UUID, url: URL, context: [String : String]?, client: TUSClient) {
-        print("TUS: finished upload \(id) url=\(url)")
+        TusUploadManager.postLog("TUS: finished upload id=\(id.uuidString) url=\(url.absoluteString)")
+
+        DispatchQueue.main.async {
+            if self.activeUploadId == id {
+                self.activeProgress = 1.0
+                self.activeStatus = "Completed"
+            }
+            self.lastUploadedURL = url
+        }
     }
 
     func uploadFailed(id: UUID, error: Error, context: [String : String]?, client: TUSClient) {
-        print("TUS: upload failed \(id) error=\(error)")
+        TusUploadManager.postLog("TUS: upload failed id=\(id.uuidString) error=\(error)")
+
+        DispatchQueue.main.async {
+            if self.activeUploadId == id {
+                self.activeStatus = "Failed"
+            }
+        }
     }
 
     func fileError(id: UUID?, error: TUSClientError, client: TUSClient) {
-        print("TUS: file error \(error) id=\(id?.uuidString ?? "nil")")
+        TusUploadManager.postLog("TUS: file error \(error) id=\(id?.uuidString ?? "nil")")
     }
 
     func totalProgress(bytesUploaded: Int, totalBytes: Int, client: TUSClient) {
-        // Optional: global progress
+        // Optional: global progress – log for debugging
+        TusUploadManager.postLog("TUS: totalProgress uploaded=\(bytesUploaded) / \(totalBytes) bytes")
     }
 
     func progressFor(
@@ -90,7 +140,27 @@ extension TusUploadManager: TUSClientDelegate {
         totalBytes: Int,
         client: TUSClient
     ) {
-        // Optional: per-upload progress
+        let progress = totalBytes > 0 ? Double(bytesUploaded) / Double(totalBytes) : 0
+        let percent = Int(progress * 100)
+
+        TusUploadManager.postLog(
+            "TUS: progress id=\(id.uuidString) \(bytesUploaded)/\(totalBytes) bytes (\(percent)%)"
+        )
+
+        DispatchQueue.main.async {
+            if self.activeUploadId == id {
+                self.activeBytesUploaded = bytesUploaded
+                self.activeTotalBytes = totalBytes
+                self.activeProgress = progress
+                self.activeStatus = "Uploading… \(percent)%"
+            }
+        }
     }
 }
+
+// Notification name for piping TUS logs into the SwiftUI log view.
+extension Notification.Name {
+    static let tusLog = Notification.Name("TusUploadLog")
+}
+
 
