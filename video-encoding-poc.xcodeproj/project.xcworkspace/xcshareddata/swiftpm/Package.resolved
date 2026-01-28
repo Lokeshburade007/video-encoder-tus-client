@@ -1,5 +1,5 @@
 {
-  "originHash" : "010ad2fce4eab6f8282f7f3d41ba96457b27bc1c928fadc25a144f1327a44887",
+  "originHash" : "534932ee7dd3a1c172a9c3c83bf0d50293cf64180bb988636cd83005521f5dc9",
   "pins" : [
     {
       "identity" : "ffmpeg-ios",
@@ -17,6 +17,15 @@
       "state" : {
         "revision" : "6b2aa2748a7881eebb9f84fb10c01293e15b52ca",
         "version" : "0.5.0"
+      }
+    },
+    {
+      "identity" : "tuskit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/tus/TUSKit",
+      "state" : {
+        "revision" : "52cb37fa0cb46a91d0e384905e64e7556156ef8c",
+        "version" : "3.7.0"
       }
     },
     {

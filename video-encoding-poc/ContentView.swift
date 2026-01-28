@@ -61,6 +61,14 @@ struct ContentView: View {
                     Label("Download ZIP", systemImage: "arrow.down.circle")
                 }
                 .padding(.top, 4)
+
+                // Upload ZIP using TUS (resumable upload)
+                Button {
+                    uploadZip(for: video)
+                } label: {
+                    Label("Upload ZIP (TUS)", systemImage: "arrow.up.circle")
+                }
+                .padding(.top, 2)
             }
 
             // MARK: - Encoded Videos List
@@ -177,6 +185,45 @@ struct ContentView: View {
             } catch {
                 await MainActor.run {
                     self.encodeLog += "❌ Failed to create ZIP: \(error.localizedDescription)\n"
+                }
+            }
+        }
+    }
+
+    // MARK: - TUS Upload
+    private func uploadZip(for video: EncodedVideo) {
+        let folderURL = video.playlistURL.deletingLastPathComponent()
+
+        guard let docs = FileManager.default.urls(
+            for: .documentDirectory,
+            in: .userDomainMask
+        ).first else {
+            return
+        }
+
+        let zipFileName = folderURL.lastPathComponent + ".zip"
+        let destination = docs.appendingPathComponent(zipFileName)
+
+        encodeLog += "Preparing ZIP for TUS upload: \(zipFileName)\n"
+
+        Task.detached(priority: .userInitiated) {
+            do {
+                let fm = FileManager.default
+                if !fm.fileExists(atPath: destination.path) {
+                    try await ZipHelper.zipFolder(sourceURL: folderURL, zipFileURL: destination)
+                }
+
+                let uploadId = try await TusUploadManager.shared.upload(
+                    fileURL: destination,
+                    context: ["title": video.title]
+                )
+
+                await MainActor.run {
+                    self.encodeLog += "📤 Started TUS upload id=\(uploadId.uuidString)\n"
+                }
+            } catch {
+                await MainActor.run {
+                    self.encodeLog += "❌ Failed to start TUS upload: \(error.localizedDescription)\n"
                 }
             }
         }

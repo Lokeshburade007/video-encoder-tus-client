@@ -3,4 +3,96 @@
    uuid = "C8AEC6A6-AC87-400A-BA79-212F781BE1C7"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9CE19F27-B83E-4A12-B1A3-7DA68AC8B502"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "video-encoding-poc/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
+            landmarkName = "uploadZip(for:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2F397A6F-E244-48F7-ADC1-B0DB9BEE83C3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "video-encoding-poc/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
+            landmarkName = "uploadZip(for:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2F397A6F-E244-48F7-ADC1-B0DB9BEE83C3 - 7b5206f7c779c818"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(9) suspend resume partial function for closure #1 () async -&gt; () in video_encoding_poc.ContentView.uploadZip(for: video_encoding_poc.EncodedVideo) -&gt; ()"
+                  moduleName = "video-encoding-poc.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lokeshburade/Documents/video-encoding-poc/video-encoding-poc/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "221"
+                  endingLineNumber = "221">
+               </Location>
+               <Location
+                  uuid = "2F397A6F-E244-48F7-ADC1-B0DB9BEE83C3 - f9c3ee6fe918c734"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(10) await resume partial function for closure #1 () async -&gt; () in video_encoding_poc.ContentView.uploadZip(for: video_encoding_poc.EncodedVideo) -&gt; ()"
+                  moduleName = "video-encoding-poc.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lokeshburade/Documents/video-encoding-poc/video-encoding-poc/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "221"
+                  endingLineNumber = "221">
+               </Location>
+               <Location
+                  uuid = "2F397A6F-E244-48F7-ADC1-B0DB9BEE83C3 - 3b520e7268a990d7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(16) suspend resume partial function for closure #1 () async -&gt; () in video_encoding_poc.ContentView.uploadZip(for: video_encoding_poc.EncodedVideo) -&gt; ()"
+                  moduleName = "video-encoding-poc.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lokeshburade/Documents/video-encoding-poc/video-encoding-poc/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "221"
+                  endingLineNumber = "221">
+               </Location>
+               <Location
+                  uuid = "2F397A6F-E244-48F7-ADC1-B0DB9BEE83C3 - d061c5be0d055fac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor @Sendable () -&gt; () in closure #1 () async -&gt; () in video_encoding_poc.ContentView.uploadZip(for: video_encoding_poc.EncodedVideo) -&gt; ()"
+                  moduleName = "video-encoding-poc.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lokeshburade/Documents/video-encoding-poc/video-encoding-poc/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "222"
+                  endingLineNumber = "222">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		30D1D7DB2F2A02CA00984829 /* FFmpeg-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = 30D1D7DA2F2A02CA00984829 /* FFmpeg-iOS */; };
 		30D1D7E82F2A1FC200984829 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 30D1D7E72F2A1FC200984829 /* ZIPFoundation */; };
+		30D1D7ED2F2A27C200984829 /* TUSKit in Frameworks */ = {isa = PBXBuildFile; productRef = 30D1D7EC2F2A27C200984829 /* TUSKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 			files = (
 				30D1D7DB2F2A02CA00984829 /* FFmpeg-iOS in Frameworks */,
 				30D1D7E82F2A1FC200984829 /* ZIPFoundation in Frameworks */,
+				30D1D7ED2F2A27C200984829 /* TUSKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +76,7 @@
 			packageProductDependencies = (
 				30D1D7DA2F2A02CA00984829 /* FFmpeg-iOS */,
 				30D1D7E72F2A1FC200984829 /* ZIPFoundation */,
+				30D1D7EC2F2A27C200984829 /* TUSKit */,
 			);
 			productName = "video-encoding-poc";
 			productReference = 30D1D7C42F29FC5200984829 /* video-encoding-poc.app */;
@@ -106,6 +109,7 @@
 			packageReferences = (
 				30D1D7D92F2A02CA00984829 /* XCRemoteSwiftPackageReference "FFmpeg-iOS" */,
 				30D1D7E62F2A1FC200984829 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
+				30D1D7EB2F2A27C200984829 /* XCRemoteSwiftPackageReference "TUSKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 30D1D7C52F29FC5200984829 /* Products */;
@@ -359,6 +363,14 @@
 				minimumVersion = 0.9.20;
 			};
 		};
+		30D1D7EB2F2A27C200984829 /* XCRemoteSwiftPackageReference "TUSKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tus/TUSKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.7.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -371,6 +383,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 30D1D7E62F2A1FC200984829 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
 			productName = ZIPFoundation;
+		};
+		30D1D7EC2F2A27C200984829 /* TUSKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30D1D7EB2F2A27C200984829 /* XCRemoteSwiftPackageReference "TUSKit" */;
+			productName = TUSKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
