@@ -1,0 +1,33 @@
+{
+  "originHash" : "010ad2fce4eab6f8282f7f3d41ba96457b27bc1c928fadc25a144f1327a44887",
+  "pins" : [
+    {
+      "identity" : "ffmpeg-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kewlbear/FFmpeg-iOS.git",
+      "state" : {
+        "revision" : "59c01fbba5a85005d4b624f77f6ad32d43a4d922",
+        "version" : "0.0.5"
+      }
+    },
+    {
+      "identity" : "swift-argument-parser",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-argument-parser",
+      "state" : {
+        "revision" : "6b2aa2748a7881eebb9f84fb10c01293e15b52ca",
+        "version" : "0.5.0"
+      }
+    },
+    {
+      "identity" : "zipfoundation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/weichsel/ZIPFoundation",
+      "state" : {
+        "revision" : "22787ffb59de99e5dc1fbfe80b19c97a904ad48d",
+        "version" : "0.9.20"
+      }
+    }
+  ],
+  "version" : 3
+}
