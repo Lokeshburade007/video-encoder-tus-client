@@ -50,36 +50,6 @@
             endingLineNumber = "64"
             landmarkName = "upload(fileURL:context:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "B6B78812-0EFB-4BBB-9997-E43D5F8BC817 - de5d1b46f7cb02e4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "video_encoding_poc.TusUploadManager.upload(fileURL: Foundation.URL, context: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;) throws -&gt; Foundation.UUID"
-                  moduleName = "video-encoding-poc.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lokeshburade/Documents/video-encoding-poc/video-encoding-poc/TusUploadManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "65"
-                  endingLineNumber = "65">
-               </Location>
-               <Location
-                  uuid = "B6B78812-0EFB-4BBB-9997-E43D5F8BC817 - 91dd8d1b82654de8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in video_encoding_poc.TusUploadManager.upload(fileURL: Foundation.URL, context: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;) throws -&gt; Foundation.UUID"
-                  moduleName = "video-encoding-poc.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lokeshburade/Documents/video-encoding-poc/video-encoding-poc/TusUploadManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
